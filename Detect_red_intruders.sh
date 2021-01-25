@@ -2,7 +2,6 @@
 # -*- ENCODING: UTF-8 -*-
 ##
 ## @author     Yago López Prado
-## @copyright  Copyright © 2021
 
 ############################
 ##     INSTRUCCIONES      ##
