@@ -1,0 +1,16 @@
+#!/bin/bash
+# Basic while loop
+if [ $# -le 0 ] 
+then  
+echo "filecreator error: usage: filecreator (number of files) (name of files)"  
+exit 1
+else
+x=1
+i=1
+until [ $i = $1 ]
+do
+	touch $2$i.txt
+	i=$((i+x))
+done
+exit
+fi
