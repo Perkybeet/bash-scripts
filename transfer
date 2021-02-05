@@ -1,0 +1,48 @@
+#!/bin/bash
+
+###################################################################
+#Script name	:transfer
+#Description	:
+#Author       	:Yago López Prado
+#license        :https://github.com/Perkybeet/bash-scripts/blob/main/LICENSE
+#Email         	:"yago2003.lopez@gmail.com"
+sudo clear
+cd /
+echo "Remote host you want to access and file location:"
+echo "Example: (user)@(ip):(location)"
+read host
+echo "Binder name where files are going to be moved:"
+read nombre
+echo "Location:" && echo "Example: /home/user/file"
+read ubicacion
+echo "Do you know the remote host password? (s/n)"
+read pass
+#procesos
+		if [ $pass = "s" ]
+		then
+			echo "====================="
+			echo "Right? (s/n)"
+            echo "Host  = $host"
+			echo "Name  = $nombre"
+			echo "Ln    = $ubicacion"
+			echo "Passw = ****"
+			read respuesta				
+                if [ $respuesta = "s" ]
+				then
+					cd $ubicacion
+				    sudo mkdir $nombre
+				    cd /
+		            echo -ne ' Connecting...\r' && sleep 3 && echo -ne 'ERROR\r'
+		            sudo scp -r $host $ubicacion/$nombre
+					    if [ $? = 0 ]
+					    then
+						    echo "Success..."
+						    [ "^C" ]
+					    else
+						    echo "Try again later"
+						    sleep 2
+						    [ "^C" ]
+					    fi
+		        fi
+        fi
+exit 0

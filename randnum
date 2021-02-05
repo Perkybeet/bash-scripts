@@ -1,26 +1,13 @@
 #!/bin/bash
 
 #---------------------------------------------------------------------------
-#Script name	:filecreator
+#Script name	:randnum
 #Description	:
 #Author       	:Yago López Prado
 #license        :https://github.com/Perkybeet/bash-scripts/blob/main/LICENSE
 #Email         	:"yago2003.lopez@gmail.com"
 #---------------------------------------------------------------------------
 
-#bucle básico
-if [ $# -le 0 ] 
-then  
-    echo "filecreator error: usage: filecreator (number of files) (name of files)"  
-    exit 1
-else
-#var
-x=1
-i=1
-until [ $i = $1 ]
-do
-	touch $2$i.txt
-	i=$((i+x))
-done
-exit
-fi
+#modificar valor "% " para alterar la escala.
+num=$((RANDOM%10))
+echo $num
